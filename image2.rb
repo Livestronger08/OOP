@@ -34,21 +34,21 @@ class Image
   end
 end
 
-image = Image.new(arr); [
+image = Image.new([
   [0, 0, 0, 0],
   [0, 0, 1, 0],
   [0, 0, 0, 0],
   [0, 1, 0, 0],
   [0, 0, 0, 0],
   [0, 0, 0, 0]
-];
+])
 
 image.find_ones
 image.output_image
 
-puts image ([
-arr[row][col - 1] = 1,
-arr[row - 1][col] = 1,
-arr[row][col + 1] = 1,
-arr[row + 1][col] = 1
-])
+puts image 
+arr [row][col - 1] = 1
+arr [row - 1][col] = 1
+arr [row][col + 1] = 1
+arr [row + 1][col] = 1
+
