@@ -4,7 +4,7 @@ class Image
   end
 
   def find_ones
-    list_of_ones = [] #create empty array to track found 1's
+    @list_of_ones = [] #create empty array to track found 1's
 
     row = 0
     @image.each do |n|
@@ -21,8 +21,6 @@ class Image
 
       row +=1
     end
-
-    return list_of_ones #return the list of ones so that we can loop over it and flip the 0s to 1s
   end
 
   #you have to do the work in this or another function in this class
@@ -30,6 +28,15 @@ class Image
   def output_image
     @image.each do |image|
       puts image.join(' ')
+    end
+  end
+
+  def blur
+    @list_of_ones.each do |point|
+      @image [row][col - 1] = 1
+      @image [row - 1][col] = 1
+      @image [row][col + 1] = 1
+      @image [row + 1][col] = 1
     end
   end
 end
@@ -46,9 +53,5 @@ image = Image.new([
 image.find_ones
 image.output_image
 
-puts image 
-arr [row][col - 1] = 1
-arr [row - 1][col] = 1
-arr [row][col + 1] = 1
-arr [row + 1][col] = 1
-
+image.blur
+image.output_image

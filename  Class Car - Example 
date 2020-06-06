@@ -1,0 +1,34 @@
+class Car
+  def initialize(make, model, year)
+    @make = make
+    @model = model
+    @year = year
+    @speed = 0
+  end
+
+  def print_car_details
+    puts "#{@make} #{@model} year #{@year} driving at #{@speed}mph"
+  end
+
+  def start_car
+    puts("Car is starting")
+  end
+
+  def stop_car
+    puts("Car is stopping")
+  end
+
+  def accelerate(speed)
+    @speed = speed
+  end
+
+  def deaccelerate(speed)
+    @speed = speed
+  end
+end
+
+my_car = Car.new("Subaru","Impreza", 2014) # calls def initialize
+my_car.print_car_details()
+my_car2 = Car.new("Ford","F-150", 2018)
+my_car2.print_car_details()
+puts "THE END"
