@@ -4,23 +4,33 @@ class Image
   end
 
   def find_ones
-    @list_of_ones = [] #create empty array to track found 1's
+    list_of_ones = [] #create empty array to track found 1's
 
-    row = 0
-    @image.each do |n|
+      @image.each_with_index do |row, row_number|
+        row.each_with_index do |item, col_number|
 
-      col = 0
-      n.each do |m|
-
-        if m == 1
-          list_of_ones.push([row, col]) #when you find a one, track it
+          if item == 1
+            list_of_ones.push( [row_number, col_number] )
+          end
         end
-
-        col +=1
+        #puts row.join('----')
       end
+      list_of_ones
+    #row = 0
+    #@image.each do |n|
 
-      row +=1
-    end
+      #col = 0
+      #n.each do |m|
+
+        #if m == 1
+          #list_of_ones.push([row, col]) #when you find a one, track it
+        #end
+
+        #col +=1
+      #end
+
+      #row +=1
+    #end
   end
 
   #you have to do the work in this or another function in this class
@@ -49,9 +59,20 @@ image = Image.new([
   [0, 0, 0, 0],
   [0, 0, 0, 0]
 ])
-
+p image.find_ones
 image.find_ones
 image.output_image
 
-image.blur
-image.output_image
+p image.blur
+image.list_of_ones
+
+#def test
+  #@array = [1,54, 20, 8]
+
+  #@array.each_with_index do |elephants, gorillas|
+    #puts elephants
+    #puts gorillas
+  #end
+#end
+#test 
+
