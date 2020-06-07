@@ -16,8 +16,8 @@ class Image
         #puts row.join('----')
       end
       list_of_ones
-    #row = 0
-    #@image.each do |n|
+      #row = 0
+      #@image.each do |n|
 
       #col = 0
       #n.each do |m|
@@ -42,13 +42,21 @@ class Image
   end
 
   def blur
-    @list_of_ones.each do |point|
-      @image [row][col - 1] = 1
-      @image [row - 1][col] = 1
-      @image [row][col + 1] = 1
-      @image [row + 1][col] = 1
+    list_of_ones = find_ones
+    @picture.each_with_index do |row, row_number|
+      row.each_with_index do |item, col_number|
+      end
     end
-  end
+  end 
+
+    #@list_of_ones.each do |point|
+      #image [row][col - 1] = 1
+      #image [row - 1][col] = 1
+      #image [row][col + 1] = 1
+      #image [row + 1][col] = 1
+    #end
+
+  #end
 end
 
 image = Image.new([
@@ -61,10 +69,9 @@ image = Image.new([
 ])
 p image.find_ones
 image.find_ones
-image.output_image
 
-p image.blur
-image.list_of_ones
+#image.output_image
+#image.blur
 
 #def test
   #@array = [1,54, 20, 8]
@@ -75,4 +82,3 @@ image.list_of_ones
   #end
 #end
 #test 
-
