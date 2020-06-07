@@ -43,11 +43,14 @@ class Image
 
   def blur
     list_of_ones = find_ones
-    @picture.each_with_index do |row, row_number|
+    @image.each_with_index do |row, row_number|
       row.each_with_index do |item, col_number|
         list_of_ones.each do |found_row_number, found_col_number|
           if row_number == found_row_number && col_number == found_col_number
-            @picture[row_number -1][col_number] = 1 unless row_number ==0
+            @image[row_number -1][col_number] = 1 unless row_number == 0
+            @image[row_number +1][col_number] = 1 unless row_number == 0
+            @image[row_number][col_number -1] = 1 unless col_number == 0
+            @image[row_number][col_number +1] = 1 unless col_number == 0
             
           end
         end 
@@ -64,13 +67,31 @@ class Image
 
   #end
 end
-
-image = Image.new([
+  puts 
+image1 = Image.new([
   [0, 0, 0, 0],
   [0, 0, 1, 0],
   [0, 0, 0, 0],
   [0, 1, 0, 0],
   [0, 0, 0, 0],
+  [0, 0, 0, 0]
+])
+  puts 
+image2 = Image.new([
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 1, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0]
+])
+  puts 
+image3 = Image.new([
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [1, 0, 0, 0],
   [0, 0, 0, 0]
 ])
 #p image.find_ones
@@ -88,4 +109,11 @@ image = Image.new([
   #end
 #end
 #test 
-puts image.blur 
+image1.blur
+image1.output_image
+
+image2.blur
+image2.output_image
+
+image3.blur
+image3.output_image 
