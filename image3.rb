@@ -1,5 +1,5 @@
 class Image
-    
+
     def initialize(image)
         @image = image
     end
@@ -11,7 +11,7 @@ class Image
         manhattan_image
     end
 
-    def blur
+    def blur(row_number, col_number)
         if row_number != 0
             @image[row_number - 1][col_number] = 1
         end
@@ -38,9 +38,8 @@ class Image
             end
         end
             ones.each do |pair|
-                row_number, col_number = pair
-                blur(row_number, col_number)
-            end
+            row_number, col_number = pair
+            blur(row_number, col_number)
         end
     end
 
