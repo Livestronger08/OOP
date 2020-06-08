@@ -50,8 +50,7 @@ class Image
             @image[row_number -1][col_number] = 1 unless row_number == 0
             @image[row_number +1][col_number] = 1 unless row_number == 0
             @image[row_number][col_number -1] = 1 unless col_number == 0
-            @image[row_number][col_number +1] = 1 unless col_number == 0
-            
+            @image[row_number][col_number +1] = 1  
           end
         end 
       end
@@ -67,7 +66,7 @@ class Image
 
   #end
 end
-  puts 
+
 image1 = Image.new([
   [0, 0, 0, 0],
   [0, 0, 1, 0],
@@ -76,7 +75,7 @@ image1 = Image.new([
   [0, 0, 0, 0],
   [0, 0, 0, 0]
 ])
-  puts 
+
 image2 = Image.new([
   [0, 0, 0, 0],
   [0, 0, 0, 0],
@@ -85,7 +84,7 @@ image2 = Image.new([
   [0, 0, 0, 0],
   [0, 0, 0, 0]
 ])
-  puts 
+
 image3 = Image.new([
   [0, 0, 0, 0],
   [0, 0, 0, 0],
@@ -109,11 +108,14 @@ image3 = Image.new([
   #end
 #end
 #test 
+puts 
 image1.blur
 image1.output_image
 
+puts
 image2.blur
 image2.output_image
 
+puts 
 image3.blur
 image3.output_image 
