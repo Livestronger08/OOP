@@ -1,5 +1,5 @@
-Class Image
-
+class Image
+    
     def initialize(image)
         @image = image
     end
@@ -38,8 +38,9 @@ Class Image
             end
         end
             ones.each do |pair|
-            row_number, col_number = pair
-            blur(row_number, col_number)
+                row_number, col_number = pair
+                blur(row_number, col_number)
+            end
         end
     end
 
